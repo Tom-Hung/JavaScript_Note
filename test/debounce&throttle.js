@@ -51,4 +51,10 @@ const throttle = (func) => {
 };
 
 // onScroll listener
-// window.addEventListener("scroll", throttle(handleScroll));
+window.addEventListener("scroll", throttle());
+
+// setInterval 每隔 ｎ 秒就執行一次，有沒有辦法實作 throttle ?
+//  我認為沒辦法 ：
+//    偵測開始 scroll 時，開啟 setInterval 並定義好時間間隔，每隔 n 秒觸發執行
+//    但是沒辦法知道 scrolling 何時停止，所以即便有 clearInterval 也找不到時機
+//    清除掉 Interval
