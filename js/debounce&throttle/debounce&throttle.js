@@ -13,21 +13,23 @@ const handleScroll = () => {
 };
 
 // debounce example
-const debounce = (func) => {
-  let timer = null;
+const debounce = (func, delayTime) => {
+  // 此處即 closure 閉包 :
+  // 即使回傳的 arrow funciton 沒有 timer 變數，但他會向外部環境 debounce 尋找，該 timer 變數在 debounce 執行環境結束時，依然保存在記憶體中
+  let timer;
 
   return () => {
-    // 不段刷新的重點在 clearTimeout
+    // 不斷刷新的重點在 clearTimeout 上觸發的 timer
     clearTimeout(timer);
-    timer = setTimeout(func, 1000);
+    timer = setTimeout(func, delayTime);
   };
 };
 
 // onScroll listener
-// window.addEventListener("scroll", debounce(handleScroll));
+// window.addEventListener("scroll", debounce(handleScroll,1000));
 
 // throttle example
-const throttle = (func) => {
+const throttle = (func, delayTime) => {
   let timer;
   let last;
 
@@ -36,12 +38,12 @@ const throttle = (func) => {
     const now = +new Date();
 
     // 當 last 存在 且 間隔內 執行
-    if (last && now < last + 2000) {
+    if (last && now < last + delayTime) {
       clearTimeout(timer);
       timer = setTimeout(() => {
         last = now;
         func();
-      }, 2000);
+      }, delayTime);
     } else {
       // 符合間隔時間便執行並更新 last
       last = now;
@@ -51,10 +53,4 @@ const throttle = (func) => {
 };
 
 // onScroll listener
-window.addEventListener("scroll", throttle());
-
-// setInterval 每隔 ｎ 秒就執行一次，有沒有辦法實作 throttle ?
-//  我認為沒辦法 ：
-//    偵測開始 scroll 時，開啟 setInterval 並定義好時間間隔，每隔 n 秒觸發執行
-//    但是沒辦法知道 scrolling 何時停止，所以即便有 clearInterval 也找不到時機
-//    清除掉 Interval
+window.addEventListener("scroll", throttle(handleScroll, 1000));
