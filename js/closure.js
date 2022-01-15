@@ -9,7 +9,7 @@ function printCat() {
 
 printCat(); // 印出 MIMI
 
-// 閉包 Closure: 在上述的基礎下，即便外部環境已經執行完被踢掉，它所建立的變數還是可以被存取得到。
+// 閉包 Closure: 在上述的基礎下，即便外部環境已經執行完被踢掉，它所建立的變數還是可以被存取得到，範例如下：
 
 function setLastName(last_name) {
   // 回傳後 setLastName 就被執行堆疊踢掉，但是變數 last_name 會保留在記憶體某處

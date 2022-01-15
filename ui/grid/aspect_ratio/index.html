@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./aspect_ratio.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="item1 bg_item">
+        <img src="../../../public/01.jpg" alt="01" />
+      </div>
+      <div class="item2 sm_item">
+        <img src="../../../public/02.jpg" alt="01" />
+      </div>
+      <div class="item3 sm_item">
+        <img src="../../../public/03.jpg" alt="01" />
+      </div>
+      <div class="item4 bg_item">
+        <img src="../../../public/04.jpg" alt="01" />
+      </div>
+      <div class="item5 bg_item">
+        <img src="../../../public/05.jpg" alt="01" />
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- 
+    grid 可以用很多種方式達到一樣的效果:
+     1. grid-template-area 以視覺化方式定義好區塊，再用 grid-area 對應到定義好的區塊位置
+     2. grid-template 切分隔線，子物件再用 grid column / row 指定要佔用幾格格子或格線
+        ... 
+     
+     grid 應用常見於：
+     1. 滿版圖片牆
+     2. （非滿版）卡片牆
+     3. ... 
+
+     想法：
+     1. 雖然在練習應用中用 flex / grid 都可以做到一樣效果,
+        但在此處用 grid 不管是 html 與 css 中都更加直覺簡單，
+        但不是很簡潔
+-->

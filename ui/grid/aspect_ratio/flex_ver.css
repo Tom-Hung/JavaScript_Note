@@ -1,0 +1,93 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* overflow-x: hidden; */
+}
+
+.container {
+  /* 區塊 */
+  display: flex;
+  flex-wrap: wrap;
+  background-color: plum;
+  border: 3px solid white;
+}
+
+.row {
+  display: flex;
+}
+
+/* 比例 2 : 1 */
+/* 取消 scroll bar */
+.col {
+  position: relative;
+
+  /* 區塊 */
+  width: 50vw;
+  height: 25vw;
+  max-width: 100%;
+  background-color: aqua;
+}
+
+.inner_btn {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 80px);
+  width: 160px;
+  height: 50px;
+  border: 1px solid white;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  z-index: 1;
+  font-size: 21px;
+  font-weight: bold;
+  transition: all 0.5s ease;
+}
+
+.num2 {
+  display: flex;
+}
+
+.num2 img {
+  width: 50%;
+  height: 100%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-sizing: border-box;
+  transition: all 0.5s ease;
+}
+
+img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+img:hover + .inner_btn {
+  transform: scale(1.2);
+  background-color: rgba(0, 128, 0, 0.712);
+  border-color: transparent;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: block;
+  }
+  .row {
+    display: block;
+  }
+  .col {
+    width: 100vw;
+    height: 50vw;
+  }
+}
+
+/* 重點
+1. 容器不一定要有寬高
+2. 善用等比例區塊 (vw)
+3. 選取氣要注意元件之間的關係，sibling / parents... */
