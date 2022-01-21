@@ -11,7 +11,7 @@
 // => 主要差異在監聽器可以設置要 bubbling 或 capture 階段執行
 
 // 為什麼清楚這個流程很重要？實戰中會如何運用？
-// 1. parent 與 child 有相同的事件時，清楚 handler 執行的順序
+// 1. parent 與 child 有相同的事件時，都會被觸發，清楚 handler 執行的順序
 // 2. 理解 e.target 與 e.currentTarget 屬性指稱的對象，善加利用
 // 3. 依據情境選擇要不要觸發 propagation，或要 capture or bubbling
 // 4. Event Delegation 減少多餘的事件監聽器
